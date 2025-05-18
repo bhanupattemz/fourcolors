@@ -1,0 +1,160 @@
+
+.four-colors-main {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.four-colors-title {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.four-colors-solved {
+  color: #27ae60;
+  margin: 10px 0;
+  animation: four-colors-pulse 1.5s infinite;
+}
+
+@keyframes four-colors-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.four-colors-grid {
+  display: inline-grid;
+  margin: 20px auto;
+  border: 2px solid #34495e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.four-colors-cell {
+  border: 1px solid #bdc3c7;
+  transition: background-color 0.3s ease;
+}
+
+.four-colors-cell-editable {
+  cursor: pointer;
+  background-color: white;
+}
+
+.four-colors-cell-editable:hover {
+  background-color: #f5f5f5;
+}
+
+.four-colors-cell-fixed {
+  cursor: not-allowed;
+}
+
+.four-colors-palette {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+}
+
+.four-colors-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.four-colors-option:hover {
+  transform: scale(1.1);
+  border-color: #2c3e50;
+}
+
+.four-colors-red { background-color: red; }
+.four-colors-green { background-color: lightgreen; }
+.four-colors-blue { background-color: blue; }
+.four-colors-yellow { background-color: yellow; }
+
+.four-colors-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.four-colors-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.four-colors-button:hover {
+  background-color: #2980b9;
+}
+
+.four-colors-solution-btn {
+  background-color: #2ecc71;
+}
+
+.four-colors-solution-btn:hover {
+  background-color: #27ae60;
+}
+
+.four-colors-refresh-btn {
+  background-color: #e67e22;
+}
+
+.four-colors-refresh-btn:hover {
+  background-color: #d35400;
+}
+
+.four-colors-form {
+  display: flex;
+  gap: 10px;
+}
+
+.four-colors-input {
+  padding: 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  width: 180px;
+}
+
+.four-colors-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+@media (max-width: 600px) {
+  
+  .four-colors-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .four-colors-form {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .four-colors-palette {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .four-colors-option {
+    width: 35px;
+    height: 35px;
+  }
+}
