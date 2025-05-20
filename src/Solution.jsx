@@ -1,7 +1,7 @@
 const CheckSolution = (grid, struct, n) => {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            if (!grid || !Array.isArray(grid) || grid.length !== n || !grid[i] || !grid[i][j] || grid[i][j].style.backgroundColor === "white") {
+            if (!grid || !Array.isArray(grid) || grid.length !== n || !grid[i] || !grid[i][j] || grid[i][j].style.backgroundColor === "white" || !grid[i][j].style.backgroundColor) {
                 return false
             }
         }
