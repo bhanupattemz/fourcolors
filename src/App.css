@@ -143,7 +143,16 @@
   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
+.four-colors-feature-btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
 @media (max-width: 600px) {
+  .four-colors-feature-btns {
+    width: 100%;
+  }
 
   .four-colors-controls {
     flex-direction: column;

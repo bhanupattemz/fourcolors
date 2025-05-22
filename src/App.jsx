@@ -161,27 +161,30 @@ function App() {
           }} className='four-colors-option four-colors-yellow' onClick={() => { setCurrColor("yellow") }}></div>
         </div>
         <div className='four-colors-controls'>
-          <button className='four-colors-button four-colors-refresh-btn' onClick={() => {
-            if (preMoves && preMoves.length != 0) {
-              setPreMoves(prev => {
-                let temp = JSON.parse(JSON.stringify(prev))
-                let [x, y] = temp.pop()
-                changeColor(x, y, "white")
-                return temp
-              })
-            }
-          }}>undo</button>
-          <button className='four-colors-button four-colors-solution-btn' onClick={() => {
-            setGrid(prev => {
-              const newGrid = prev.map(row => row.map(cell => ({ ...cell })))
-              for (let i = 0; i < solution.length; i++) {
-                for (let [r, c] of solution[i].cells) {
-                  newGrid[r][c].style.backgroundColor = solution[i].backgroundColor
-                }
+          <div className='four-colors-feature-btns'>
+            <button className='four-colors-button four-colors-refresh-btn' onClick={() => {
+              if (preMoves && preMoves.length != 0) {
+                setPreMoves(prev => {
+                  let temp = JSON.parse(JSON.stringify(prev))
+                  let [x, y] = temp.pop()
+                  changeColor(x, y, "white")
+                  return temp
+                })
               }
-              return newGrid
-            })
-          }}>Solution</button>
+            }}>undo</button>
+            <button className='four-colors-button four-colors-solution-btn' onClick={() => {
+              setGrid(prev => {
+                const newGrid = prev.map(row => row.map(cell => ({ ...cell })))
+                for (let i = 0; i < solution.length; i++) {
+                  for (let [r, c] of solution[i].cells) {
+                    newGrid[r][c].style.backgroundColor = solution[i].backgroundColor
+                  }
+                }
+                return newGrid
+              })
+            }}>Solution</button>
+            <button className='four-colors-button four-colors-refresh-btn' onClick={() => { setRefresh(prev => prev + 1) }}>refresh</button>
+          </div>
           <form className='four-colors-form' onSubmit={(e) => {
             e.preventDefault();
             setN(formValue)
@@ -189,7 +192,6 @@ function App() {
             <input className='four-colors-input' type="number" max={20} name="size" id="size" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder='Enter grid Size(max 20)' />
             <button className='four-colors-button'>Set</button>
           </form>
-          <button className='four-colors-button four-colors-refresh-btn' onClick={() => { setRefresh(prev => prev + 1) }}>refresh</button>
         </div>
       </main>
     </>
