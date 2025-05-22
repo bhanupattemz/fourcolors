@@ -183,7 +183,7 @@ function App() {
                 return newGrid
               })
             }}>Solution</button>
-            <button className='four-colors-button four-colors-refresh-btn' onClick={() => { setRefresh(prev => prev + 1) }}>refresh</button>
+            <button className='four-colors-button four-colors-refresh-btn' onClick={() => { setRefresh(prev => prev + 1); setSolved(false) }}>refresh</button>
           </div>
           <form className='four-colors-form' onSubmit={(e) => {
             e.preventDefault();
