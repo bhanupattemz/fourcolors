@@ -114,33 +114,34 @@ function App() {
     if (CheckSolution(grid, struct, n)) {
       setSolved(true)
     }
-    console.log(countValidColorings(struct, n))
   }, [grid])
   return (
     <>
       <main className='four-colors-main' style={{ cursor: `url(/${currColor}.png) 2 2,auto` }}>
         <h1 className='four-colors-title'>Four colors</h1>
         {solved && <h2 className='four-colors-solved'>Solved</h2>}
-        <div className="four-colors-grid" style={{ gridTemplateRows: `repeat(${n}, 50px)`, gridTemplateColumns: `repeat(${n}, 50px)` }}>
-          {grid.map((row, rowIndex) =>
-            row.map((item, colIndex) => {
-              return (
-                <div
-                  className={`four-colors-cell`}
-                  key={`${rowIndex}-${colIndex}`}
-                  style={{
-                    ...item.style, cursor: (item.style.backgroundColor && item.style.backgroundColor != "white") ? "not-allowed" : `url(/${currColor}.png) 2 2,auto`
-                  }}
-                  onClick={() => {
-                    if (!item.style.backgroundColor || item.style.backgroundColor == "white") {
-                      setPreMoves(prev => [...prev, [rowIndex, colIndex]])
-                      changeColor(rowIndex, colIndex, currColor)
-                    }
-                  }}
-                />
-              )
-            })
-          )}
+        <div className='grid-scroll-container'>
+          <div className="four-colors-grid" style={{ gridTemplateRows: `repeat(${n}, 50px)`, gridTemplateColumns: `repeat(${n}, 50px)` }}>
+            {grid.map((row, rowIndex) =>
+              row.map((item, colIndex) => {
+                return (
+                  <div
+                    className={`four-colors-cell`}
+                    key={`${rowIndex}-${colIndex}`}
+                    style={{
+                      ...item.style, cursor: (item.style.backgroundColor && item.style.backgroundColor != "white") ? "not-allowed" : `url(/${currColor}.png) 2 2,auto`
+                    }}
+                    onClick={() => {
+                      if (!item.style.backgroundColor || item.style.backgroundColor == "white") {
+                        setPreMoves(prev => [...prev, [rowIndex, colIndex]])
+                        changeColor(rowIndex, colIndex, currColor)
+                      }
+                    }}
+                  />
+                )
+              })
+            )}
+          </div>
         </div>
         <div className='four-colors-palette' ref={boxRef} >
           <div style={{
